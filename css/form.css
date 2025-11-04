@@ -1,0 +1,270 @@
+.container-form form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin-top: 10px;
+}
+
+.container-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Wrapper com a largura do form */
+.form-wrapper {
+  width: min(90vw, 400px);
+}
+
+.container-radio {
+  display: flex;
+}
+
+.container-radio div {
+  padding: 10px;
+}
+
+form label {
+  color: #ebc181;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+form input {
+  border-radius: 10px;
+  border: 3px solid #c47713;
+  padding: 10px;
+  margin-bottom: 10px;
+  transition: 0.5s;
+}
+
+form input[type="file"] {
+  color: #ffffff;
+}
+
+form input::file-selector-button {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+form input:focus {
+  border: 3px solid #ebc181;
+  outline: none;
+}
+
+/* Layout básico vertical para formulários de produto */
+.form-produto {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-width: 620px;
+  margin: 1.5rem auto 2.5rem;
+  padding: 1.5rem 1.75rem 2rem;
+  background: #ffffff;
+  border: 1px solid #e2e4e8;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px -4px rgba(0, 0, 0, 0.1);
+}
+
+/* Evita herança de flex horizontal de containers pais */
+.form-produto * {
+  box-sizing: border-box;
+}
+
+.form-produto label {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #333;
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.form-produto input[type="text"],
+.form-produto input[type="number"],
+.form-produto input[type="email"],
+.form-produto input[type="password"],
+.form-produto textarea {
+  width: 100%;
+  display: block;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid #cfd4da;
+  border-radius: 8px;
+  background: #fdfdfd;
+  font: 400 0.95rem "Poppins", Arial, sans-serif;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-produto textarea {
+  resize: vertical;
+  min-height: 110px;
+  line-height: 1.4;
+}
+
+.form-produto input:focus,
+.form-produto textarea:focus {
+  outline: none;
+  border-color: #d47a18;
+  box-shadow: 0 0 0 3px rgba(212, 122, 24, 0.25);
+}
+
+.form-produto select {
+  width: 100%;
+  display: block;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid #cfd4da;
+  border-radius: 8px;
+  background: #fdfdfd;
+  font: 400 0.95rem "Poppins", Arial, sans-serif;
+  line-height: 1.2;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: linear-gradient(135deg, #ffffff, #fafafa),
+    url("data:image/svg+xml;utf8,<svg fill='%23666' height='18' viewBox='0 0 24 24' width='18' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: left top, right 0.75rem center;
+  background-size: 100% 100%, 18px;
+  cursor: pointer;
+}
+
+.form-produto select:focus {
+  outline: none;
+  border-color: #d47a18;
+  box-shadow: 0 0 0 3px rgba(228, 142, 51, 0.25);
+  background-image: linear-gradient(135deg, #ffffff, #ffffff),
+    url("data:image/svg+xml;utf8,<svg fill='%23d47a18' height='18' viewBox='0 0 24 24' width='18' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+}
+
+.form-produto select:hover {
+  border-color: #b8bec4;
+}
+
+.form-produto select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.grupo-botoes {
+  display: flex;
+  gap: 0.9rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.botao-cadastrar,
+.botao-voltar {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.75rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border: none;
+}
+
+.botao-cadastrar {
+  background: #d47a18;
+  color: #fff;
+}
+
+.botao-cadastrar:hover {
+  background: #bb6810;
+}
+
+.botao-voltar {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.botao-voltar:hover {
+  background: #e2e2e2;
+}
+
+/* --- Botões unificados (Salvar laranja / Voltar cinza) --- */
+.grupo-botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center; /* centraliza verticalmente os botões no container */
+  justify-content: flex-start;
+  margin-top: 1rem;
+  min-height: 44px;
+}
+
+.grupo-botoes .botao-cadastrar,
+.grupo-botoes .botao-voltar {
+  display: inline-flex;
+  align-items: center; /* centralização vertical do texto */
+  justify-content: center;
+  height: 44px;
+  padding: 0 1.4rem;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  border-radius: 8px;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 1;
+  box-sizing: border-box;
+  transition: background 0.25s, transform 0.18s, box-shadow 0.25s;
+  position: relative;
+}
+
+/* Salvar (laranja) */
+.grupo-botoes .botao-cadastrar {
+  background: linear-gradient(135deg, #d47a18, #c26812);
+  color: #fff;
+}
+.grupo-botoes .botao-cadastrar:hover {
+  background: linear-gradient(135deg, #c86f17, #af5d10);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px -4px rgba(0, 0, 0, 0.25);
+}
+.grupo-botoes .botao-cadastrar:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px -3px rgba(0, 0, 0, 0.35);
+}
+
+/* Voltar (cinza) */
+.grupo-botoes .botao-voltar {
+  background: linear-gradient(135deg, #f0f0f0, #dcdcdc);
+  color: #333;
+  border: 1px solid #cfd4da;
+}
+.grupo-botoes .botao-voltar:hover {
+  background: linear-gradient(135deg, #e2e2e2, #cfcfcf);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px -5px rgba(0, 0, 0, 0.18);
+}
+.grupo-botoes .botao-voltar:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px -4px rgba(0, 0, 0, 0.28);
+}
+
+/* Foco acessível */
+.grupo-botoes .botao-cadastrar:focus,
+.grupo-botoes .botao-voltar:focus {
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(212, 122, 24, 0.35);
+}
+
+/* Desabilitado (se usar) */
+.grupo-botoes .botao-cadastrar:disabled,
+.grupo-botoes .botao-voltar:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Remover margem do botão Salvar Alterações */
+.grupo-botoes .botao-cadastrar {
+  margin: 0 !important;
+}

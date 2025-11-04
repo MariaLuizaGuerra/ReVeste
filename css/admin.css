@@ -1,0 +1,263 @@
+body {
+  background: #f5f6f8;
+  font-family: "Poppins", Arial, sans-serif;
+  min-height: 100vh;
+  color: #222;
+}
+
+.container-topo {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
+  max-width: 100%;
+  padding: 20px;
+}
+
+.topo-direita {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  /* background-color: #f8efd5; */
+  background-color: #ebc181;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.topo-direita p {
+  margin: 0;
+}
+
+.topo-direita form {
+  margin: 0;
+}
+
+.conteudo {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.conteudo p {
+  color: #fff !important;
+}
+
+.botao-sair {
+  background-color: #ebc181;
+  color: #aa7615;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  font-family: "Poppins", sans-serif;
+}
+
+.botao-sair:hover {
+  background-color: #eba339;
+  transform: scale(1.05);
+}
+
+.container-admin-banner {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0px 0px 20px;
+}
+
+.logo-admin {
+  width: 400px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 24px;
+  margin: 20px 0px;
+  color: grey;
+  font-weight: bold;
+}
+
+.container-table {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+table {
+  width: 90%;
+  margin: auto 0;
+}
+
+table,
+th,
+td {
+  border: 1px solid #8a5404;
+}
+
+table th {
+  padding: 11px 0 11px;
+  background-color: #ebc181;
+  color: #ec8f24;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: left;
+  padding: 8px;
+}
+
+table tr {
+  border: 1px solid #ddd;
+}
+
+table td {
+  color: #000;
+  font-size: 18px;
+  padding: 8px;
+}
+
+.container-admin-banner h1 {
+  margin-top: 40px;
+  font-size: 30px;
+  color: #ebc181;
+}
+
+.container-lista-produtos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: auto 0;
+}
+
+.container-lista {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: solid #ebc181 0.5px;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 3px 0;
+}
+
+.container-lista h3 {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+table tbody tr td a,
+.botao-cadastrar,
+.botao-excluir {
+  padding: 3px 10px;
+  border-radius: 10px;
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 5px;
+  transition: 0.7s;
+  border: none;
+  font-size: 18px;
+}
+
+table tbody tr td a:hover,
+.botao-cadastrar:hover,
+.botao-excluir:hover {
+  cursor: pointer;
+  filter: saturate(150%);
+}
+
+.botao-cadastrar {
+  background: #ebc181;
+  color: #333b1e;
+  font-weight: 600;
+  margin-top: 20px;
+  font-size: 20px;
+  border-radius: 10px;
+  padding: 10px 10px;
+  border: none;
+}
+
+.botao-editar {
+  background: #9b8357;
+}
+
+.botao-excluir {
+  background: rgb(241, 241, 252);
+}
+
+.ornaments {
+  width: 200px;
+}
+
+/* === Ajustes layout topo e menu centralizado === */
+.topo-adm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  padding: 0.8rem 2rem;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+}
+
+.menu-adm {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 2.4rem;
+}
+
+.menu-adm a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #333;
+  position: relative;
+  padding: 0.55rem 0.4rem;
+  transition: color 0.2s;
+}
+
+.menu-adm a:hover {
+  color: #000;
+}
+
+.menu-adm a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background: #d47a18; /* cor destaque */
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: width 0.28s;
+}
+
+.menu-adm a:hover::after {
+  width: 70%;
+}
+
+.usuario-area {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.85rem;
+}
+
+.botao-sair-pequeno,
+.botao-sair {
+  cursor: pointer;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}

@@ -1,0 +1,161 @@
+.container-topo {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  margin: auto;
+  max-width: 100%;
+  padding: 20px;
+}
+
+.topo-direita {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  background-color: #ebc181;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.conteudo {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.botao-sair {
+  background-color: #ebc181;
+  color: #333b1e;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  font-family: "Poppins", sans-serif;
+}
+
+.botao-sair:hover {
+  background-color: #d9a95f;
+  transform: scale(1.05);
+}
+
+/* Corrige a largura do formulário do botão sair */
+.topo-direita form {
+  width: auto !important;
+  margin: 0 !important;
+  display: inline-block !important;
+  flex: 0 0 auto !important;
+}
+
+.topo-direita .botao-sair {
+  width: auto !important;
+  white-space: nowrap;
+}
+
+.link-adm {
+  color: #bac8d3; /* Cor do link */
+  text-decoration: none; /* Remove o sublinhado */
+  font-weight: bold; /* Negrito */
+  font-size: 16px;
+  transition: color 0.3s ease; /* Animação suave na cor */
+}
+
+/* Quando o mouse passa por cima */
+.link-adm:hover {
+  color: #005fa3;
+  text-decoration: underline;
+}
+
+/* Quando o link já foi visitado */
+.link-adm:visited {
+  color: #a4d0db;
+}
+
+/* Quando o link está sendo clicado */
+.link-adm:active {
+  color: #003f7f;
+}
+
+/* Mensagens de feedback (sucesso / erro) */
+.container-form .form-wrapper .mensagem-erro,
+.container-form .form-wrapper .mensagem-ok {
+  color: #c0392b;
+  background: #fff0f0;
+  border: 1px solid #c0392b;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin: 12px 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.container-form .form-wrapper .mensagem-ok {
+  color: #176a32;
+  background: #e6f8ec;
+  border-color: #2e9a52;
+}
+
+/* Estado inicial da mensagem */
+.mensagem-erro,
+.mensagem-ok {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Estado final, quando a mensagem está sumindo */
+.mensagem-erro.oculto,
+.mensagem-ok.oculto {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+.acoes-login {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.botao-primario,
+.botao-secundario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  padding: 0 1.4rem;
+  font: 600 0.9rem "Poppins", Arial, sans-serif;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  letter-spacing: 0.4px;
+  transition: 0.22s;
+  border: none;
+}
+
+.botao-primario {
+  background: linear-gradient(135deg, #d47a18, #c26812);
+  color: #fff;
+}
+
+.botao-primario:hover {
+  background: linear-gradient(135deg, #c86f17, #af5d10);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px -5px rgba(0, 0, 0, 0.35);
+}
+
+.botao-secundario {
+  background: #f0f0f0;
+  color: #333;
+  border: 1px solid #d4d7da;
+}
+
+.botao-secundario:hover {
+  background: #e4e4e4;
+  transform: translateY(-2px);
+}
+
+.erro-login {
+  color: #c03030;
+  font-size: 0.85rem;
+  margin: 0.4rem 0 0;
+}
