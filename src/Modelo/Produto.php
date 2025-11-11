@@ -9,7 +9,7 @@ class Produto
     private float $preco;
     private ?int $categoria_id;
 
-    public function __construct(int $id, string $tipo, string $nome, string $descricao,  float $preco,  ?int $categoria_id, ?string $imagem = null)
+    public function __construct(?int $id, string $tipo, string $nome, string $descricao,  float $preco,  ?int $categoria_id, string $imagem = null)
     {
         $this->id = $id;
         $this->tipo = $tipo;
@@ -67,7 +67,7 @@ class Produto
         }
 
         // caso falhe, usa imagem padrão na pasta img/
-        return 'img/' . ($this->imagem ?? 'logo-granato.png');
+        return 'img/' . ($this->imagem ?? 'reVeste_Logo.jpg');
     }
 
     public function getPreco(): float

@@ -11,11 +11,11 @@ if (!$usuarioLogado) {
   exit;
 }
 require __DIR__ . "/../src/conexao-bd.php";
-require __DIR__ . "/../src/Modelo/Produto.php";
-require __DIR__ . "/../src/Repositorio/ProdutoRepositorio.php";
+require __DIR__ . "/../src/Modelo/Categoria.php";
+require __DIR__ . "/../src/Repositorio/CategoriaRepositorio.php";
 
-$produtoRepositorio = new ProdutoRepositorio($pdo);
-$produtos = $produtoRepositorio->buscarTodos();
+$categoriaRepositorio = new CategoriaRepositorio($pdo);
+$categorias = $categoriaRepositorio->buscarTodos();
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -26,11 +26,11 @@ $produtos = $produtoRepositorio->buscarTodos();
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/admin.css">
-  <link rel="icon" href="../img/reVeste_Logo.png" type="image/x-icon">
+  <link rel="icon" href="../img/icone-granato.png" type="image/x-icon">
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap"
     rel="stylesheet">
-  <title>ReVeste - Produtos</title>
+  <title>Granato - Categorias</title>
 </head>
 
 <body>
@@ -43,6 +43,7 @@ $produtos = $produtoRepositorio->buscarTodos();
     </div>
     <nav class="menu-adm">
       <a href="../dashboard.php">Dashboard</a>
+      <a href="../categorias/listar.php">Categorias</a>
       <a href="../produtos/listar.php">Produtos</a>
       <a href="../usuarios/listar.php">Usuários</a>
     </nav>
@@ -55,33 +56,23 @@ $produtos = $produtoRepositorio->buscarTodos();
 
   </header>
   <main>
-    <h2>Lista de Produtos</h2>
+    <h2>Lista de Categorias</h2>
     <section class="container-table">
       <table>
         <thead>
           <tr>
-            <th>Produto</th>
-            <th>Tamanho</th>
-            <th>Tipo</th>
-            <th>Descricão</th>
-            <th>Forma de pagamento</th>
-            <th>Valor</th>
+            <th>Categoria</th>
             <th colspan="2">Ação</th>
           </tr>
         </thead>
         <tbody>
-          <?php foreach ($produtos as $produto): ?>
+          <?php foreach ($categorias as $categoria): ?>
             <tr>
-              <td><?= htmlspecialchars($produto->getNome()) ?></td>
-              <td><?= htmlspecialchars($produto->getTipo()) ?></td>
-              <td><?= htmlspecialchars($produto->getTamanho()) ?></td>
-              <td><?= htmlspecialchars($produto->getDescricao()) ?></td>
-              <td><?= htmlspecialchars($produto->getFormaPagamaento()) ?></td>
-              <td><?= htmlspecialchars($produto->getPrecoFormatado()) ?></td>
-              <td><a class="botao-editar" href="form.php?id=<?= $produto->getId() ?>">Editar</a></td>
+              <td><?= htmlspecialchars($categoria->getCategoria()) ?></td>
+              <td><a class="botao-editar" href="form.php?id=<?= $categoria->getId() ?>">Editar</a></td>
               <td>
                 <form action="excluir.php" method="post">
-                  <input type="hidden" name="id" value="<?= $produto->getId() ?>">
+                  <input type="hidden" name="id" value="<?= $categoria->getId() ?>">
                   <input type="submit" class="botao-excluir" value="Excluir">
                 </form>
               </td>
@@ -89,7 +80,7 @@ $produtos = $produtoRepositorio->buscarTodos();
           <?php endforeach; ?>
         </tbody>
       </table>
-      <a class="botao-cadastrar" href="form.php">Cadastrar produto</a>
+      <a class="botao-cadastrar" href="form.php">Cadastrar categoria</a>
       <form action="gerador-pdf.php" method="post" style="display:inline;">
         <input type="submit" class="botao-cadastrar" value="Baixar Relatório">
       </form>

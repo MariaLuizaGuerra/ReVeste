@@ -20,6 +20,7 @@ class ProdutoRepositorio
             $dados['nome'],
             $dados['descricao'],
             $dados['preco'],
+            $dados['categoria_id'],
             $dados['imagem']
         );
     }
@@ -28,20 +29,21 @@ class ProdutoRepositorio
     {
         $sql1 = "SELECT * FROM produtos WHERE tipo = 'Café' ORDER BY preco";
         $statement = $this->pdo->query($sql1);
-        $produtosCafe = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $produtosAcessorio = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        $dadosCafe = array_map(function ($cafe) {
+        $dadosAcessorio = array_map(function ($cafe) {
             return $this->formarObjeto($cafe);
-        }, $produtosCafe);
+        }, $produtosAcessorio);
 
-        return $dadosCafe;
+
+        return $produtosAcessorio;
     }
 
     public function opcoesAlmoco(): array
     {
-        $sql2 = "SELECT * FROM produtos WHERE tipo = 'Almoço' ORDER BY preco";
+        $sql2 = "SELECT * FROM produtos WHERE tipo = 'Camiseta' ORDER BY preco";
         $statement = $this->pdo->query($sql2);
-        $produtosAlmoco = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $produtosCamisete = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         $dadosAlmoco = array_map(function ($almoco) {
             return $this->formarObjeto($almoco);
@@ -82,7 +84,7 @@ class ProdutoRepositorio
         // se excluiu no banco, tenta remover arquivo correspondente em uploads/
         if ($stmtDel->rowCount() > 0 && !empty($imagem)) {
             // não remover imagem padrão que está em img/
-            if ($imagem === 'logo-granato.png') {
+            if ($imagem === 'reVeste_Logo.php') {
                 return;
             }
 
