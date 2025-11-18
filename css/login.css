@@ -1,161 +1,122 @@
-.container-topo {
-  display: flex;
-  flex-direction: column;
-  width: 75%;
-  margin: auto;
-  max-width: 100%;
-  padding: 20px;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap');
+
+
+body {
+    font-family: "Noto Sans", sans-serif;
+    background: url("../img/fundoLogin.jpg") no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
 }
 
-.topo-direita {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-  gap: 10px;
-  background-color: #ebc181;
-  padding: 10px;
-  border-radius: 5px;
+
+.container-login {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 40px 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    text-align: center;
+    max-width: 380px;
+    width: 90%;
 }
 
-.conteudo {
-  text-align: center;
-  margin-top: 20px;
+
+.logo-login {
+    width: 200px;
+    margin-bottom: 15px;
 }
 
-.botao-sair {
-  background-color: #ebc181;
-  color: #333b1e;
-  border: none;
-  border-radius: 10px;
-  padding: 8px 16px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-  font-family: "Poppins", sans-serif;
+
+.titulo-login {
+    color: #4b2e1f;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
 }
 
-.botao-sair:hover {
-  background-color: #d9a95f;
-  transform: scale(1.05);
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
 }
 
-/* Corrige a largura do formulário do botão sair */
-.topo-direita form {
-  width: auto !important;
-  margin: 0 !important;
-  display: inline-block !important;
-  flex: 0 0 auto !important;
+
+label {
+    color: #4b2e1f;
+    font-size: 0.95rem;
+    font-weight: 600;
 }
 
-.topo-direita .botao-sair {
-  width: auto !important;
-  white-space: nowrap;
+
+input[type="email"],
+input[type="password"] {
+    padding: 10px;
+    border: 1px solid #c0a58a;
+    border-radius: 8px;
+    outline: none;
+    background-color: #fdfaf8;
 }
 
-.link-adm {
-  color: #bac8d3; /* Cor do link */
-  text-decoration: none; /* Remove o sublinhado */
-  font-weight: bold; /* Negrito */
-  font-size: 16px;
-  transition: color 0.3s ease; /* Animação suave na cor */
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #9b6c44;
 }
 
-/* Quando o mouse passa por cima */
-.link-adm:hover {
-  color: #005fa3;
-  text-decoration: underline;
+
+.botao-entrar {
+    background-color: #b2896b;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
 }
 
-/* Quando o link já foi visitado */
-.link-adm:visited {
-  color: #a4d0db;
+
+.botao-entrar:hover {
+    background-color: #9b6c44;
 }
 
-/* Quando o link está sendo clicado */
-.link-adm:active {
-  color: #003f7f;
+
+.mensagem-erro {
+    background-color: #f8d7da;
+    color: #842029;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
 }
 
-/* Mensagens de feedback (sucesso / erro) */
-.container-form .form-wrapper .mensagem-erro,
-.container-form .form-wrapper .mensagem-ok {
-  color: #c0392b;
-  background: #fff0f0;
-  border: 1px solid #c0392b;
-  padding: 8px 12px;
-  border-radius: 6px;
-  margin: 12px 0;
-  font-size: 0.85rem;
-  font-weight: 500;
+
+.mensagem-erro.oculto {
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
-.container-form .form-wrapper .mensagem-ok {
-  color: #176a32;
-  background: #e6f8ec;
-  border-color: #2e9a52;
+
+.botao-cadastrar {
+    background-color: #b2896b;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
 }
 
-/* Estado inicial da mensagem */
-.mensagem-erro,
-.mensagem-ok {
-  transition: opacity 0.6s ease, transform 0.6s ease;
+
+.botao-cadastrar:hover {
+    background-color: #9b6c44;
 }
 
-/* Estado final, quando a mensagem está sumindo */
-.mensagem-erro.oculto,
-.mensagem-ok.oculto {
-  opacity: 0;
-  transform: translateY(-10px);
-}
-.acoes-login {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-top: 1rem;
-}
 
-.botao-primario,
-.botao-secundario {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 46px;
-  padding: 0 1.4rem;
-  font: 600 0.9rem "Poppins", Arial, sans-serif;
-  border-radius: 8px;
-  text-decoration: none;
-  cursor: pointer;
-  letter-spacing: 0.4px;
-  transition: 0.22s;
-  border: none;
-}
 
-.botao-primario {
-  background: linear-gradient(135deg, #d47a18, #c26812);
-  color: #fff;
-}
-
-.botao-primario:hover {
-  background: linear-gradient(135deg, #c86f17, #af5d10);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px -5px rgba(0, 0, 0, 0.35);
-}
-
-.botao-secundario {
-  background: #f0f0f0;
-  color: #333;
-  border: 1px solid #d4d7da;
-}
-
-.botao-secundario:hover {
-  background: #e4e4e4;
-  transform: translateY(-2px);
-}
-
-.erro-login {
-  color: #c03030;
-  font-size: 0.85rem;
-  margin: 0.4rem 0 0;
-}
