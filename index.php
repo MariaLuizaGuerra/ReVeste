@@ -27,7 +27,7 @@ $dadosAlmoco = $produtosRepositorio->opcoesAlmoco();
     <link rel="icon" href="img/reVeste_Logo.jpg" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <title>Granato - Cardápio</title>
+    <title>reVeste - Inicio</title>
 </head>
 
 <body>
@@ -39,13 +39,12 @@ $dadosAlmoco = $produtosRepositorio->opcoesAlmoco();
             </div>
 
         </section>
-        <h2>Cardápio Digital</h2>
-        <section class="container-cafe-manha">
-            <div class="container-cafe-manha-titulo">
+        <h2>Para você</h2>
+        <section class="container-principal">
+            <div class="container-roupas-titulo">
                 <h3>Sugestoes para você</h3>
-                <img class="ornaments" src="img/ornaments-coffee.png" alt="ornaments">
             </div>
-            <div class="container-cafe-manha-produtos">
+            <div class="container-produtos">
                 <?php foreach ($dadosCafe as $cafe): ?>
                     <div class="container-produto">
                         <div class="container-foto">
@@ -58,12 +57,11 @@ $dadosAlmoco = $produtosRepositorio->opcoesAlmoco();
                 <?php endforeach; ?>
             </div>
         </section>
-        <section class="container-almoco">
-            <div class="container-almoco-titulo">
+        <section class="container-principal">
+            <div class="container-roupas-titulo">
                 <h3>Opções para o Almoço</h3>
-                <img class="ornaments" src="img/ornaments-coffee.png" alt="ornaments">
             </div>
-            <div class="container-almoco-produtos">
+            <div class="container-produtos">
                 <?php foreach ($dadosAlmoco as $almoco): ?>
                     <div class="container-produto">
                         <div class="container-foto">
