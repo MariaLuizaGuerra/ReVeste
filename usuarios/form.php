@@ -76,7 +76,7 @@ $actionForm   = $modoEdicao ? 'salvar.php' : 'salvar.php';
     </nav>
     <div class="container-admin-banner">
         <a href="dashboard.php">
-            <img src="../img/reVeste_Logo.jpg" alt="Reveste" class="logo-admin">
+            <img src="img/reVeste_Logo.jpg" alt="ReVeste" class="logo-admin">
         </a>
     </div>
 

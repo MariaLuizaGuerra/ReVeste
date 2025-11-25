@@ -7,23 +7,37 @@ class Produto
     private string $descricao;
     private ?string $imagem;
     private float $preco;
+    private ?string $categoria;
     private ?int $categoria_id;
+    private ?string $tamanho;
 
-    public function __construct(?int $id, string $tipo, string $nome, string $descricao,  float $preco,  ?int $categoria_id, string $imagem = null)
-    {
-        $this->id = $id;
-        $this->tipo = $tipo;
-        $this->nome = $nome;
-        $this->descricao = $descricao;
-        $this->imagem = $imagem ?? 'reVeste_Logo.jpg';
-        $this->preco = $preco;
-        $this->categoria_id = $categoria_id;
-        
-    }
+
+
+   public function __construct(
+    ?int $id,
+    string $tipo,
+    string $nome,
+    string $descricao,
+    float $preco,
+    ?int $categoria_id,
+    ?string $tamanho,
+    ?string $categoria,
+    ?string $imagem = null
+) {
+    $this->id = $id;
+    $this->tipo = $tipo;
+    $this->nome = $nome;
+    $this->descricao = $descricao;
+    $this->preco = $preco;
+    $this->categoria_id = $categoria_id;
+    $this->tamanho = $tamanho;
+    $this->categoria = $categoria;
+    $this->imagem = $imagem ?? 'reVeste_Logo.jpg';
+}
 
 
     // O método getId() deve retornar o ID, que pode ser nulo
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -84,4 +98,14 @@ class Produto
     {
         return "R$ " . number_format($this->preco, 2);
     }
+   public function getCategoria() {
+        return $this->categoria;
+    }
+
+    public function getTamanho() {
+        return $this->tamanho;
+    }
+
+
+
 }

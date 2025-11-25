@@ -10,14 +10,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Se há um ID no POST, é uma atualização. Senão, é um cadastro.
     $id = !empty($_POST['id']) ? $_POST['id'] : null;
     $produto = new Produto(
-        $id,
-        $_POST['tipo'],
-        $_POST['tamanho'],
-        $_POST['nome'],
-        $_POST['descricao'],
-        $_POST['formaPagamento'],
-        $_POST['preco']
-    );
+    $id,
+    $_POST['tipo'],                
+    $_POST['nome'],               
+    $_POST['descricao'],          
+    (float) str_replace(',', '.', $_POST['preco']),
+    (int) $_POST['categoria'],   
+    $_POST['tamanho'] ?? null,    
+    $_POST['formaPagamento']  ?? null,  
+    $nomeArquivoImagem ?? null
+
+);
+
+
+    $sql = "INSERT INTO produtos   (tipo, nome, descricao, preco, categoria_id, tamanho, categoria, imagem)
+    VALUES (:tipo, :nome, :descricao, :preco, :categoria_id, :tamanho, :categoria, :imagem)";
+
 
     // Lógica de upload de imagem (validação + armazenamento)
     $uploadsDir = __DIR__ . '/../uploads/';

@@ -69,6 +69,18 @@ $tituloPagina = $modoEdicao ? 'Editar Produto' : 'Cadastrar Produto';
 $textoBotao   = $modoEdicao ? 'Salvar Alterações' : 'Cadastrar Produto';
 $actionForm   = $modoEdicao ? 'salvar.php' : 'salvar.php';
 ?>
+
+<?php
+// Valores padrão para edição ou criação
+$nome = $nome ?? '';
+$tamanho = $tamanho ?? '';
+$tipo = $tipo ?? '';
+$valorDescricao = $valorDescricao ?? '';
+$preco = $preco ?? '';
+$categoria = $categoria ?? '';
+$formaPagamento = $formaPagamento ?? '';
+?>
+
 <!doctype html>
 <html lang="pt-br">
 
@@ -96,7 +108,7 @@ $actionForm   = $modoEdicao ? 'salvar.php' : 'salvar.php';
         </nav>
         <div class="container-admin-banner">
             <a href="dashboard.php">
-                <img src="../img/logo-granato-horizontal.png" alt="Granato" class="logo-admin">
+                <img src="../img/Logo.png" alt="ReVeste" class="logo-admin">
             </a>
         </div>
 
@@ -105,32 +117,52 @@ $actionForm   = $modoEdicao ? 'salvar.php' : 'salvar.php';
     <main>
         <h2><?= htmlspecialchars($tituloPagina) ?></h2>
 
-        <form action="<?= $actionForm ?>" method="post" class="form-produto" enctype="multipart/form-data">
-            <?php if ($modoEdicao): ?>
-                <input type="hidden" name="id" value="<?= (int)$produto->getId() ?>">
-            <?php endif; ?>
+        <form action="salvar.php" method="POST" enctype="multipart/form-data">
 
-            <div>
-                <label for="nome">Nome</label>
-                <input id="nome" name="nome" type="text" required value="<?= htmlspecialchars($valorNome) ?>">
-            </div>
+    <div>
+        <label for="nome">Nome do Produto</label>
+        <input id="nome" name="nome" type="text" required value="<?= htmlspecialchars($nome) ?>">
+    </div>
 
-            <div>
-                <label for="tipo">Tipo</label>
-                <input id="tipo" name="tipo" type="text" required value="<?= htmlspecialchars($valorTipo) ?>">
-            </div>
+    <div>
+        <label for="tamanho">Tamanho</label>
+        <input id="tamanho" name="tamanho" type="number" required value="<?= htmlspecialchars($tamanho) ?>">
+    </div>
 
-            <div>
-                <label for="descricao">Descrição</label>
-                <textarea id="descricao" name="descricao" rows="4"
-                    required><?= htmlspecialchars($valorDescricao) ?></textarea>
-            </div>
+    <div>
+        <label for="tipo">Tipo</label>
+        <input id="tipo" name="tipo" type="text" required value="<?= htmlspecialchars($tipo) ?>">
+    </div>
 
-            <div>
-                <label for="preco">Preço</label>
-                <input id="preco" name="preco" type="number" step="0.01" min="0" required
-                    value="<?= htmlspecialchars($valorPreco) ?>">
-            </div>
+    <div>
+        <label for="categoria">Categoria</label>
+        <select id="categoria" name="categoria" required>
+            <option value="">Selecione...</option>
+            <option value="1" <?= $categoria == 1 ? 'selected' : '' ?>>Roupas</option>
+            <option value="2" <?= $categoria == 2 ? 'selected' : '' ?>>Calçados</option>
+            <option value="3" <?= $categoria == 3 ? 'selected' : '' ?>>Acessórios</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="descricao">Descrição</label>
+        <textarea id="descricao" name="descricao" rows="4" required><?= htmlspecialchars($valorDescricao) ?></textarea>
+    </div>
+
+    <div>
+        <label for="preco">Preço</label>
+        <input id="preco" name="preco" type="number" step="0.01" required value="<?= htmlspecialchars($preco) ?>">
+    </div>
+
+    <div>
+        <label for="formaPagamento">Forma de Pagamento</label>
+        <select id="formaPagamento" name="formaPagamento" required>
+            <option value="">Selecione...</option>
+            <option value="Crédito" <?= $formaPagamento == 'Crédito' ? 'selected' : '' ?>>Crédito</option>
+            <option value="Débito" <?= $formaPagamento == 'Débito' ? 'selected' : '' ?>>Débito</option>
+            <option value="Pix" <?= $formaPagamento == 'Pix' ? 'selected' : '' ?>>Pix</option>
+        </select>
+    </div>       
 
             <!-- Novo campo: imagem -->
             <div>

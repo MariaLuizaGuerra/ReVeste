@@ -26,11 +26,11 @@ $categorias = $categoriaRepositorio->buscarTodos();
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/admin.css">
-  <link rel="icon" href="../img/icone-granato.png" type="image/x-icon">
+  <link rel="icon" href="../img/reVeste_Logo.jpg" type="image/x-icon">
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap"
     rel="stylesheet">
-  <title>Granato - Categorias</title>
+  <title>Categorias</title>
 </head>
 
 <body>
@@ -49,7 +49,7 @@ $categorias = $categoriaRepositorio->buscarTodos();
     </nav>
     <div class="container-admin-banner">
       <a href="dashboard.php">
-        <img src="../img/logo-granato-horizontal.png" alt="Granato" class="logo-admin">
+        <img src="../img/reVeste_Logo.jpg" alt="ReVeste" class="logo-admin">
       </a>
     </div>
 

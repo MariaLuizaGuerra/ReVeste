@@ -26,7 +26,7 @@ $produtos = $produtoRepositorio->buscarTodos();
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/admin.css">
-  <link rel="icon" href="../img/reVeste_Logo.png" type="image/x-icon">
+  <link rel="icon" href="../img/logo.png" type="image/x-icon">
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap"
     rel="stylesheet">
@@ -48,7 +48,7 @@ $produtos = $produtoRepositorio->buscarTodos();
     </nav>
     <div class="container-admin-banner">
       <a href="dashboard.php">
-        <img src="../img/logo-granato-horizontal.png" alt="Granato" class="logo-admin">
+        <img src = ".../img/logo.png" alt="ReVeste" class="logo-admin">
       </a>
     </div>
 
@@ -61,10 +61,10 @@ $produtos = $produtoRepositorio->buscarTodos();
         <thead>
           <tr>
             <th>Produto</th>
-            <th>Tamanho</th>
             <th>Tipo</th>
+            <th>Tamanho</th>
             <th>Descricão</th>
-            <th>Forma de pagamento</th>
+            <th>Forma de pagamento Aceita</th>
             <th>Valor</th>
             <th colspan="2">Ação</th>
           </tr>
@@ -76,7 +76,6 @@ $produtos = $produtoRepositorio->buscarTodos();
               <td><?= htmlspecialchars($produto->getTipo()) ?></td>
               <td><?= htmlspecialchars($produto->getTamanho()) ?></td>
               <td><?= htmlspecialchars($produto->getDescricao()) ?></td>
-              <td><?= htmlspecialchars($produto->getFormaPagamaento()) ?></td>
               <td><?= htmlspecialchars($produto->getPrecoFormatado()) ?></td>
               <td><a class="botao-editar" href="form.php?id=<?= $produto->getId() ?>">Editar</a></td>
               <td>

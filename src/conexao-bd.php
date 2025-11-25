@@ -6,7 +6,7 @@
 $db_host = getenv('DB_HOST') ?: 'localhost';
 
 $pdo = new PDO(
-    'mysql:host=' . $db_host . ';dbname=granatodb;charset=utf8mb4',
+    'mysql:host=' . $db_host . ';dbname=revestedb;charset=utf8mb4',
     'root',
     'root',
     [

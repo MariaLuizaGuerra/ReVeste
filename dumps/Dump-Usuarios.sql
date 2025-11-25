@@ -1,10 +1,10 @@
-CREATE DATABASE  IF NOT EXISTS `revestedb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
+CREATE DATABASE  IF NOT EXISTS `revestedb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `revestedb`;
--- MySQL dump 10.13  Distrib 8.0.43, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.41, for Win64 (x86_64)
 --
--- Host: localhost    Database: granatodb
+-- Host: 127.0.0.1    Database: revestedb
 -- ------------------------------------------------------
--- Server version	5.5.5-10.4.32-MariaDB
+-- Server version	8.4.4
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -25,16 +25,16 @@ DROP TABLE IF EXISTS `usuarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuarios` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `nome` varchar(50) NOT NULL,
-  `perfil` varchar(5) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `senha` varchar(255) NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
-  `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `perfil` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `senha` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uq_usuarios_email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (4,'Admin','Admin','admin@exemplo.com','$2y$12$hgp0eHsLqms7lyCaETAhQujcacTxzCaajw4fMIvdJxG2JOyktbIaG','2025-09-21 16:33:19','2025-09-22 23:45:59'),(23,'Usuario','User','teste@exemplo.com','$2y$10$cZ.d26bqpB.W7a4w9SaIkuNJ.DiG3kc6Mt37d2HWulyk.im0pmy/.','2025-09-22 21:21:12','2025-09-30 00:00:59');
+INSERT INTO `usuarios` VALUES (4,'Admin','Admin','admin@exemplo.com','$2y$12$hgp0eHsLqms7lyCaETAhQujcacTxzCaajw4fMIvdJxG2JOyktbIaG','2025-09-21 16:33:19','2025-09-22 23:45:59'),(23,'Usuarios','User','teste@exemplo.com','$2y$10$cZ.d26bqpB.W7a4w9SaIkuNJ.DiG3kc6Mt37d2HWulyk.im0pmy/.','2025-09-22 21:21:12','2025-09-30 15:36:25');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-09-30 10:38:48
+-- Dump completed on 2025-11-25  8:07:10

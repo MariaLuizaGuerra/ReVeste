@@ -14,43 +14,86 @@ class ProdutoRepositorio
 
     private function formarObjeto($dados)
     {
-        return new Produto(
-            $dados['id'],
-            $dados['tipo'],
-            $dados['nome'],
-            $dados['descricao'],
-            $dados['preco'],
-            $dados['categoria_id'],
-            $dados['imagem']
-        );
+       return new Produto(
+        $dados['id'],
+        $dados['tipo'],
+        $dados['nome'],
+        $dados['descricao'],
+        $dados['preco'],
+        (int) $dados['categoria_id'],
+        $dados['tamanho'],
+        $dados['categoria'],
+        $dados['imagem']
+    );
+
     }
 
-    public function opcoesCafe(): array
+    public function opcoesRoupas(): array
     {
-        $sql1 = "SELECT * FROM produtos WHERE tipo = 'Café' ORDER BY preco";
+        $sql1 = "SELECT * FROM produtos WHERE tipo = 'Camiseta' ORDER BY preco";
         $statement = $this->pdo->query($sql1);
-        $produtosAcessorio = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $produtos = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        $dadosAcessorio = array_map(function ($cafe) {
-            return $this->formarObjeto($cafe);
-        }, $produtosAcessorio);
+        $dadosRoupas = array_map(function ($roupa) {
+            return $this->formarObjeto($roupa);
+        }, $produtos);
 
-
-        return $produtosAcessorio;
+        return $dadosRoupas;
     }
 
-    public function opcoesAlmoco(): array
+    public function opcoesAcessorios(): array
     {
-        $sql2 = "SELECT * FROM produtos WHERE tipo = 'Camiseta' ORDER BY preco";
+        $sql2 = "SELECT * FROM produtos WHERE tipo = 'Acessorrio' ORDER BY preco";
         $statement = $this->pdo->query($sql2);
-        $produtosCamisete = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $produtosAcessorios = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        $dadosAlmoco = array_map(function ($almoco) {
+        $dadosAcessorio = array_map(function ($almoco) {
             return $this->formarObjeto($almoco);
-        }, $produtosAlmoco);
+        }, $produtosAcessorios);
 
-        return  $dadosAlmoco;
+        return  $dadosAcessorio;
     }
+
+    public function contarTotal(): int 
+    {
+        $sql = "SELECT COUNT(*) as total FROM produtos";
+        $statement = $this->pdo->query($sql);
+        $resultado = $statement->fetch(PDO::FETCH_ASSOC);
+        return (int) $resultado['total'];
+    }
+
+
+     public function buscarPaginado(int $limite, int $offset, ?string $ordem = null, ?string $direcao = 'ASC'): array 
+{
+    // Lista de colunas permitidas para ordenação
+    $colunasPermitidas = ['descricao', 'preco'];
+    
+    $sql = "SELECT * FROM produtos";
+    
+    // Adiciona ordenação se especificada e válida
+    if ($ordem !== null && in_array(strtolower($ordem), $colunasPermitidas)) {
+        $direcao = strtoupper($direcao) === 'DESC' ? 'DESC' : 'ASC';
+        $sql .= " ORDER BY {$ordem} {$direcao}";
+    }
+    
+    // Adiciona paginação
+    $sql .= " LIMIT ? OFFSET ?";
+
+    $statement = $this->pdo->prepare($sql);
+    $statement->bindValue(1, $limite, PDO::PARAM_INT);
+    $statement->bindValue(2, $offset, PDO::PARAM_INT);
+    $statement->execute();
+
+    $produtos = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $listaProdutos = [];
+
+    foreach ($produtos as $produto) {
+        $listaProdutos[] = $this->formarObjeto($produto);
+    }
+
+    return $listaProdutos;
+}
+
 
     public function buscarTodos()
     {
@@ -84,7 +127,7 @@ class ProdutoRepositorio
         // se excluiu no banco, tenta remover arquivo correspondente em uploads/
         if ($stmtDel->rowCount() > 0 && !empty($imagem)) {
             // não remover imagem padrão que está em img/
-            if ($imagem === 'reVeste_Logo.php') {
+            if ($imagem === 'logo-granato.png') {
                 return;
             }
 
@@ -95,14 +138,20 @@ class ProdutoRepositorio
         }
     }
 
-    public function salvar(Produto $produto)
-    {
-        $sql = "INSERT INTO produtos (tipo, nome, descricao, preco, imagem) VALUES (:tipo, :nome, :descricao, :preco, :imagem)";
+    public function salvar(Produto $produto){
+    
+        $sql = "INSERT INTO produtos (tipo, nome, descricao, preco, categoria_id, tamanho, categoria, imagem)
+        VALUES (:tipo, :nome, :descricao, :preco, :categoria_id, :tamanho, :categoria, :imagem)";
+
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':tipo', $produto->getTipo(), PDO::PARAM_STR);
         $stmt->bindValue(':nome', $produto->getNome(), PDO::PARAM_STR);
         $stmt->bindValue(':descricao', $produto->getDescricao(), PDO::PARAM_STR);
         $stmt->bindValue(':preco', $produto->getPreco(), PDO::PARAM_STR);
+        $stmt->bindValue(':categoria_id', $produto->getCategoria_id(), PDO::PARAM_INT);
+        $stmt->bindValue(':tamanho', $produto->getTamanho(), PDO::PARAM_STR);
+        $stmt->bindValue(':categoria', $produto->getCategoria(), PDO::PARAM_STR);
+
         $imagem = $produto->getImagem();
         if ($imagem === null || $imagem === '') {
             // usa imagem padrão se coluna for NOT NULL
@@ -127,17 +176,18 @@ class ProdutoRepositorio
 
     public function atualizar(Produto $produto)
     {
-        $sql = "UPDATE produtos SET tipo = :tipo, nome = :nome, descricao = :descricao, preco = :preco, imagem = :imagem WHERE id = :id";
+        $sql = "UPDATE produtos SET tipo = :tipo, nome = :nome, descricao = :descricao, preco = :preco, categoria_id = :categoria_id, imagem = :imagem WHERE id = :id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':tipo', $produto->getTipo(), PDO::PARAM_STR);
         $stmt->bindValue(':nome', $produto->getNome(), PDO::PARAM_STR);
         $stmt->bindValue(':descricao', $produto->getDescricao(), PDO::PARAM_STR);
         $stmt->bindValue(':preco', $produto->getPreco(), PDO::PARAM_STR);
+        $stmt->bindValue(':categoria_id', $produto->getCategoria_id(), PDO::PARAM_STR);
         $stmt->bindValue(':id', $produto->getId(), PDO::PARAM_INT);
 
         $imagem = $produto->getImagem();
         if ($imagem === null || $imagem === '') {
-            $stmt->bindValue(':imagem', 'logo-granato.png', PDO::PARAM_STR);
+            $stmt->bindValue(':imagem', 'logo.png', PDO::PARAM_STR);
         } else {
             $stmt->bindValue(':imagem', $imagem, PDO::PARAM_STR);
         }

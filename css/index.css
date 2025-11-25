@@ -13,93 +13,123 @@ main {
 .container-banner {
   width: 100%;
   height: 80%;
-  background-image: url("../img/banner-site.jpg");
+  background-image: url("img/fundoLogin.jpg");
   background-position: center;
   background-repeat: no-repeat;
 }
 
-.container-texto-banner {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin: 0 auto;
-  width: 80%;
-  height: 100%;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2e6d9;
 }
 
-.container-banner h1,
-.container-banner p {
-  color: #ffffff;
+header .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #D1855B;
+    padding: 10px 20px;
 }
 
-h2 {
-  text-align: center;
-  font-size: 48px;
-  margin: 20px 0px;
-  color: #fff;
-  font-weight: bold;
+header .icons span {
+    font-size: 24px;
+    color: white;
+    margin-right: 20px;
+    cursor: pointer;
 }
 
-.container-principal,
-.container-almoco {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+header .login-signup a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
 }
 
-.container-roupas-titulo{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.container-cafe-manha-titulo h3,
-.container-almoco-titulo h3 {
-  font-size: 32px;
-  color: #ebc181;
-  text-align: center;
-  margin: 15px 0px 5px;
+header .login-signup a:hover {
+    text-decoration: underline;
 }
 
-.container-produtos {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+section.search-bar {
+    text-align: center;
+    margin-top: 20px;
 }
 
-.container-produto {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 10px;
-  border: solid #ebc181 2px;
-  overflow: hidden;
-  margin: 10px;
-  width: 300px;
-  height: auto;
+section.search-bar h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #3d2d2f;
 }
 
-.container-produto img {
-  width: 350px;
-  height: 270px;
-  object-fit: cover;
+.search-container {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 20px;
 }
 
-.container-produto p {
-  margin: 10px 0;
-  text-align: center;
+.search-container input {
+    padding: 10px;
+    width: 300px;
+    border: none;
+    border-radius: 4px;
 }
 
-.container-produto p:nth-child(4) {
-  color: #9b8357;
-  font-size: 18px;
-  font-weight: 600;
+.search-btn {
+    padding: 10px;
+    background-color: #D1855B;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-.container-produto p:nth-child(2) {
-  font-weight: bold;
-  font-size: 20px;
+section.categories {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
 }
 
-.ornaments {
-  width: 200px;
+.category {
+    text-align: center;
+}
+
+.category img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.category p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #3d2d2f;
+}
+
+section.suggestions {
+    text-align: center;
+    margin-top: 40px;
+}
+
+section.suggestions h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #3d2d2f;
+}
+
+.suggestions .item {
+    display: inline-block;
+    margin: 20px;
+    text-align: center;
+}
+
+.suggestions .item img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.suggestions .item p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #3d2d2f;
 }
