@@ -54,7 +54,6 @@ if ($modoEdicao) {
     $valorPreco = '';
 }
 
-// Novo: valor do nome do ficheiro da imagem quando em edição (se existir)
 if ($modoEdicao) {
     if (method_exists($produto, 'getImagem')) {
         $valorImagem = $produto->getImagem();
@@ -75,7 +74,7 @@ $actionForm   = $modoEdicao ? 'salvar.php' : 'salvar.php';
 $nome = $nome ?? '';
 $tamanho = $tamanho ?? '';
 $tipo = $tipo ?? '';
-$valorDescricao = $valorDescricao ?? '';
+$descricao = $descricao ?? '';
 $preco = $preco ?? '';
 $categoria = $categoria ?? '';
 $formaPagamento = $formaPagamento ?? '';
@@ -86,15 +85,16 @@ $formaPagamento = $formaPagamento ?? '';
 
 <head>
     <meta charset="UTF-8">
-    <title><?= htmlspecialchars($tituloPagina) ?> - Granato</title>
+    <title><?= htmlspecialchars($tituloPagina) ?> - ReVeste</title>
+     <link rel="icon" href="img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/admin.css">
     <link rel="stylesheet" href="../css/form.css">
 </head>
 
-<body>
-    <header class="container-admin">
+
+<header class="container-admin">
         <div class="topo-direita">
             <span>Bem-vindo, <?php echo htmlspecialchars($usuarioLogado); ?></span>
             <form action="../logout.php" method="post" style="display:inline;">
@@ -108,19 +108,26 @@ $formaPagamento = $formaPagamento ?? '';
         </nav>
         <div class="container-admin-banner">
             <a href="dashboard.php">
-                <img src="../img/Logo.png" alt="ReVeste" class="logo-admin">
+                <img src="../img/logo.png" alt="ReVeste" class="logo-admin">
             </a>
         </div>
 
 
     </header>
     <main>
+        <div class="form-wrapper">
+    <form action="cadastrar.php" method="post" enctype="multipart/form-data">
+    </form>
+</div>
+
+    <div class="box-formulario">
         <h2><?= htmlspecialchars($tituloPagina) ?></h2>
 
         <form action="salvar.php" method="POST" enctype="multipart/form-data">
 
+    <div class="container">
     <div>
-        <label for="nome">Nome do Produto</label>
+        <label for="nome">Nome</label>
         <input id="nome" name="nome" type="text" required value="<?= htmlspecialchars($nome) ?>">
     </div>
 
@@ -145,8 +152,8 @@ $formaPagamento = $formaPagamento ?? '';
     </div>
 
     <div>
-        <label for="descricao">Descrição</label>
-        <textarea id="descricao" name="descricao" rows="4" required><?= htmlspecialchars($valorDescricao) ?></textarea>
+        <label for="nome">Descrição</label>
+        <input id="descricao" name="descricao" type="text" required value="<?= htmlspecialchars($descricao) ?>">
     </div>
 
     <div>
@@ -183,6 +190,8 @@ $formaPagamento = $formaPagamento ?? '';
                 <button type="submit" class="botao-cadastrar"><?= htmlspecialchars($textoBotao) ?></button>
                 <a href="listar.php" class="botao-voltar">Voltar</a>
             </div>
+        </div>
+    </div>
         </form>
     </main>
 </body>

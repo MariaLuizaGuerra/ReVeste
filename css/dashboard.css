@@ -1,95 +1,163 @@
-.pagina-dashboard {
-  background: #f5f6f8;
-  font-family: "Poppins", Arial, sans-serif;
-  min-height: 100dvh;
-  color: #222;
-  overflow-x: hidden;
+
+/* ====== ESTILO GERAL ====== */
+body.pagina-dashboard {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f4f6;
+    margin: 0;
+    padding: 0;
 }
 
+/* ====== HEADER E TOPO ====== */
+.container-admin {
+    width: 100%;
+    background: #0d103f;
+    color: #ffffff;
+    padding: 15px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 4px solid #0d103f;
+}
+
+.topo-direita {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.botao-sair {
+    background: #ef4444;
+    color: #ffffff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: .2s;
+}
+
+.botao-sair:hover {
+    background: #dc2626;
+}
+
+/* ====== MENU ====== */
+.menu-adm {
+    display: flex;
+    gap: 25px;
+    margin: 10px 0;
+    align-items: center;
+}
+
+.menu-adm a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 6px 12px;
+    transition: .2s;
+    border-radius: 4px;
+}
+
+.menu-adm a:hover {
+    background: #334155;
+}
+
+/* ====== LOGO ====== */
+.container-admin-banner {
+    margin-top: 10px;
+}
+
+.logo-admin {
+    width: 130px;
+    height: auto;
+    transition: transform .3s ease;
+}
+
+.logo-admin:hover {
+    transform: scale(1.07);
+}
+
+/* ====== MAIN ====== */
 .dashboard {
-  max-width: 1180px;
-  margin: 0 auto; /* remove margens que criavam overflow */
-  padding: 2rem 1.5rem 3rem; /* espaçamento interno consistente */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+    align-items: center;
 }
 
 .titulo-dashboard {
-  width: 100%;
-  text-align: center;
-  font-size: 2.15rem;
-  font-weight: 600;
-  margin: 0 0 2rem;
-  color: #2d2d2d;
-  letter-spacing: 0.5px;
+    font-size: 32px;
+    color: #1e293b;
+    margin-bottom: 25px;
+    align-items: center;
 }
 
+/* ====== CARDS ====== */
 .cards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2rem;
-  width: 100%;
-  align-items: stretch;
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .card {
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  background: #fff;
-  border: 1px solid #e2e6eb;
-  padding: 1.6rem 1.4rem 1.4rem;
-  border-radius: 14px;
-  box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.05),
-    0 2px 4px -1px rgba(0, 0, 0, 0.04);
-  transition: box-shadow 0.18s ease, transform 0.18s ease,
-    border-color 0.18s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.card:before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(140, 82, 35, 0.08),
-    rgba(255, 255, 255, 0)
-  );
-  opacity: 0;
-  transition: opacity 0.25s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  border-color: #c8d0d8;
-  box-shadow: 0 10px 26px -6px rgba(0, 0, 0, 0.15),
-    0 4px 12px -2px rgba(0, 0, 0, 0.08);
-}
-
-.card:hover:before {
-  opacity: 1;
+    background: #ffffff;
+    width: 250px;
+    padding: 25px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #1e293b;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: .3s;
+    display: block;
 }
 
 .card h2 {
-  margin: 0 0 0.6rem;
-  font-size: 1.35rem;
-  font-weight: 600;
-  color: #2c2c2c;
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
 .card p {
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.4;
-  color: #555;
+    font-size: 15px;
+    color: #475569;
 }
 
-.card-usuarios {
-  border-left: 6px solid #6b4bff;
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
 }
+
+/* ====== CORES INDIVIDUAIS DOS CARDS ====== */
+.card-usuarios {
+    border-left: 8px solid #3b82f6;
+}
+
 .card-produtos {
-  border-left: 6px solid #d47a18;
+    border-left: 8px solid #22c55e;
+}
+
+/* ====== RESPONSIVIDADE ====== */
+@media (max-width: 768px) {
+    .menu-adm {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .topo-direita {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 350px;
+    }
 }

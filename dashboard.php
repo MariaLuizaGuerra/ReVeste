@@ -35,29 +35,21 @@ function pode(string $perm): bool
             <button type="submit" class="botao-sair">Sair</button>
         </form>
     </div>
-    <nav class="menu-adm">
-        <a href="dashboard.php">Dashboard</a>
-        <a href="produtos/listar.php">Produtos</a>
-         <?php if (pode('usuarios.listar')): ?>
-        <a href="usuarios/listar.php">Usuários</a>
-        <?php endif; ?>
-    </nav>
-    <div class="container-admin-banner">
-        <a href="dashboard.php">
-            <img src="../img/logo.png" alt="ReVeste" class="logo-admin">
-        </a>
-    </div>
+
 
 
 </header>
     <main class="dashboard">
-        <h1 class="titulo-dashboard">Dashboard</h1>
+        <h1 class="titulo-dashboard">O que deseja ver?</h1>
         <section class="cards-container">
             <?php if (pode('usuarios.listar')): ?>
                 <a class="card card-usuarios" href="usuarios/listar.php">
                     <h2>Usuários</h2>
                     <p>Gerenciar e cadastrar usuários.</p>
                 </a>
+                        
+    <a href="dashboard.php">
+     </a>
             <?php endif; ?>
             <?php if (pode('produtos.listar')): ?>
                 <a class="card card-produtos" href="produtos/listar.php">
@@ -66,6 +58,7 @@ function pode(string $perm): bool
                 </a>
             <?php endif; ?>
         </section>
+
     </main>
 </body>
 
