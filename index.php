@@ -69,7 +69,7 @@ $dadosAcessorios = $produtosRepositorio->opcoesAcessorios();
     </section>
 
     <section class="suggestions">
-        <h2>Para você:</h2>
+        <h2>Para vocêeeeee:</h2>
             <div class="container-cafe-manha-produtos">
                 <?php foreach ($dadosCafe as $cafe): ?>
                     <div class="container-produto">
