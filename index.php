@@ -29,16 +29,6 @@ $dadosAcessorios = $produtosRepositorio->opcoesAcessorios();
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>ReVeste</title>
 </head>
-<body>
-    <main>
-
-    
-</head>
-<body>
-
-<div class="container">
-
-    <!-- TOPO -->
     <header class="topo">
         <div class="icons">
             <span class="icon">🔔</span>
@@ -52,15 +42,6 @@ $dadosAcessorios = $produtosRepositorio->opcoesAcessorios();
             <button class="btn-singup">SING UP</button>
         </div>
     </header>
-
-    <!-- BANNER -->
-    <section class="banner">
-        <img src="market.jpg" class="banner-img">
-
-        <div class="texto">
-            <div class="linha"></div>
-            <h2>
-
 
     <section class="container-banner">
             <div class="container-texto-banner">
