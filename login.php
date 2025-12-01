@@ -53,8 +53,8 @@ $erro = $_GET['erro'] ?? '';
 
 
             <section class="container-login">
-           
-                <h1 class="titulo-login">Login reVeste</h1>
+            
+                <h1 class="titulo-login">Acessar conta ReVeste</h1>
 
 
                 <?php if ($erro === 'credenciais'): ?>
@@ -74,10 +74,8 @@ $erro = $_GET['erro'] ?? '';
 
 
                     <input type="submit" class="botao-entrar" value="Entrar">
-                    <input type="submit" class="botao-cadastrar" value="Cadastrar">
-
-
                 </form>
+                    <a href="cadastrar.php" class="botao-cadastrar"> Cadastre-se </a>
             </section>
 
 
@@ -86,6 +84,7 @@ $erro = $_GET['erro'] ?? '';
 
 
     <script>
+        // ... (Script de ocultar mensagem permanece)
         window.addEventListener('DOMContentLoaded', function(){
             var msg = document.querySelector('.mensagem-erro');
             if(msg){
@@ -99,4 +98,6 @@ $erro = $_GET['erro'] ?? '';
 
 
 </html>
+
+
 

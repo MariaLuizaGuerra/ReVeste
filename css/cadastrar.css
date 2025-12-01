@@ -1,0 +1,131 @@
+
+body {
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+main {
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.container-cadastro {
+    background-color: rgba(255, 255, 255, 0.95); /* Fundo branco semi-transparente */
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.titulo-cadastro {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+.container-cadastro h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #555;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* --- Formulário e Campos de Entrada --- */
+
+.form-cadastro {
+    display: grid;
+    gap: 15px; /* Espaçamento entre os itens do formulário */
+}
+
+.form-cadastro label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+    margin-bottom: 5px;
+    display: block; /* Garante que o label ocupe sua própria linha */
+}
+
+.form-cadastro input[type="text"],
+.form-cadastro input[type="email"],
+.form-cadastro input[type="password"],
+.form-cadastro input[type="tel"],
+.form-cadastro input[type="date"],
+.form-cadastro select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.form-cadastro input:focus, 
+.form-cadastro select:focus {
+    border-color: #5cb85c; /* Cor de foco verde, harmonizando com o tema */
+    outline: none;
+    box-shadow: 0 0 5px rgba(92, 184, 92, 0.5);
+}
+
+/* --- Layout de Linha (Nome e Data de Nascimento, Cidade e Número) --- */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide a linha em duas colunas iguais */
+    gap: 15px;
+}
+
+/* Garante que os campos dentro do form-row preencham corretamente */
+.form-row > div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Botões e Links --- */
+
+.botao-cadastrar {
+    background-color: #5cb85c; /* Cor principal de ação (verde) */
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+}
+
+.botao-cadastrar:hover {
+    background-color: #4cae4c; /* Tom mais escuro no hover */
+}
+
+.link-voltar {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #007bff; /* Cor de link padrão */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.link-voltar:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}

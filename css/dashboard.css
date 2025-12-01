@@ -10,13 +10,13 @@ body.pagina-dashboard {
 /* ====== HEADER E TOPO ====== */
 .container-admin {
     width: 100%;
-    background: #0d103f;
+    background: #9b6c44;
     color: #ffffff;
     padding: 15px 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-bottom: 4px solid #0d103f;
+    border-bottom: 4px solid #9b6c44;
 }
 
 .topo-direita {
@@ -109,7 +109,7 @@ body.pagina-dashboard {
     padding: 25px;
     border-radius: 12px;
     text-decoration: none;
-    color: #1e293b;
+    color: #9b6c44;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     transition: .3s;
     display: block;

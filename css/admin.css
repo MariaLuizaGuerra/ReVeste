@@ -2,7 +2,7 @@ body {
   background: #f5f6f8;
   font-family: "Poppins", Arial, sans-serif;
   min-height: 100vh;
-  color: #222;
+  color: #9b6c44;
 }
 
 .container-topo {
@@ -21,7 +21,7 @@ body {
   width: 100%;
   gap: 10px;
   /* background-color: #f8efd5; */
-  background-color: #0d103f;
+  background-color: #9b6c44;
   padding: 10px;
   border-radius: 5px;
 }

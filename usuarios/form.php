@@ -39,10 +39,14 @@ if ($id) {
 
 // Valores para o form
 $valorNome       = $modoEdicao ? $usuario->getNome() : '';
-$valorPerfil     = $modoEdicao ? $usuario->getPerfil() : '';
 $valorEmail      = $modoEdicao ? $usuario->getEmail() : '';
 $valorSenha      = $modoEdicao ? $usuario->getSenha() : '';
-
+$valorDataNascimento     = $modoEdicao ? $usuario->getDataNascimento() : '';
+$valortelefone     = $modoEdicao ? $usuario->getTelefone() : '';
+$valorEndereco      = $modoEdicao ? $usuario->getEndereco() : '';
+$valorNumero      = $modoEdicao ? $usuario->getNumero() : '';
+$valorCidade      = $modoEdicao ? $usuario->getCidade() : '';
+$valorEstado     = $modoEdicao ? $usuario->getEstado() : '';
 
 $tituloPagina = $modoEdicao ? 'Editar Usuário' : 'Cadastrar Usuário';
 $textoBotao   = $modoEdicao ? 'Salvar Alterações' : 'Cadastrar Usuário';
@@ -59,6 +63,7 @@ $actionForm   = $modoEdicao ? 'salvar.php' : 'salvar.php';
     <link rel="stylesheet" href="../css/admin.css">
     <link rel="stylesheet" href="../css/form.css">
     <link rel="stylesheet" href="..css/login.css">
+    <link rel="stylesheet" href="..css/cadastrar.css">
 </head>
 
 <body>
@@ -101,14 +106,6 @@ $actionForm   = $modoEdicao ? 'salvar.php' : 'salvar.php';
                     </div>
 
                     <div>
-                        <label for="perfil">Perfil</label>
-                        <select id="perfil" name="perfil">
-                            <option value="User" <?= $valorPerfil === 'User'  ? 'selected' : '' ?>>User</option>
-                            <option value="Admin" <?= $valorPerfil === 'Admin' ? 'selected' : '' ?>>Admin</option>
-                        </select>
-                    </div>
-
-                    <div>
                         <label for="email">Email</label>
                         <input id="email" name="email" type="email" value="<?= htmlspecialchars($valorEmail) ?>">
                     </div>
@@ -117,6 +114,62 @@ $actionForm   = $modoEdicao ? 'salvar.php' : 'salvar.php';
                         <label for="senha">Senha</label>
                         <input id="senha" name="senha" type="password" value="<?= htmlspecialchars($valorSenha) ?>">
                     </div>
+
+                    <div>
+                        <label for="senha">Telefone</label>
+                        <input id="telefone" name="telefone" type="number" value="<?= htmlspecialchars($valortelefone) ?>">
+                    </div>
+
+                    <div>
+                        <label for="senha">Data Nascimento</label>
+                        <input id="dataNacimneto" name="dataNacimneto" type="date" value="<?= htmlspecialchars($valorDataNascimento) ?>">
+                    </div>
+
+                     <label for="sexo">Gênero</label>
+                <select id="sexo" name="sexo" required>
+                    <option value="">Selecione...</option>
+                    <option value="F">Feminino</option>
+                    <option value="M">Masculino</option>
+                    <option value="O">Outro</option>
+                    <option value="N">Prefiro não informar</option>
+                </select>
+
+                <label for="perfil">Perfil</label>
+                <select id="perfil" name="perfil" required>
+                    <option value="">Selecione...</option>
+                    <option value="ADM">Administrador</option>
+                    <option value="USR">Usuario</option>
+                    <option value="O">Outro</option>
+                </select>
+
+                <br>
+                <h2>Endereço</h2>
+
+                <label for="endereco">Endereço (Rua/Avenida)</label>
+                <input type="text" id="endereco" name="endereco" placeholder="Rua, Avenida, etc." required>
+                
+                <div class="form-row">
+                    <div>
+                        <label for="numero">Número</label>
+                        <input type="text" id="numero" name="numero" placeholder="Ex: 123" required>
+                    </div>
+                    <div>
+                        <label for="cidade">Cidade</label>
+                        <input type="text" id="cidade" name="cidade" placeholder="Sua Cidade" required>
+                    </div>
+                </div>
+
+                <label for="estado">Estado (UF)</label>
+                <input type="text" id="estado" name="estado" maxlength="2" placeholder="Ex: SP" required>
+
+                <br>
+                <h2>Acesso</h2>
+
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="Sua senha (mínimo 6 caracteres)" required>
 
 
                     <div class="grupo-botoes">

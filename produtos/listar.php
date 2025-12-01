@@ -47,11 +47,9 @@ $produtos = $produtoRepositorio->buscarTodos();
       <a href="../usuarios/listar.php">Usuários</a>
     </nav>
     <div class="container-admin-banner">
-      <a href="dashboard.php">
-        <img src = ".../img/logo.png" alt="ReVeste" class="logo-admin">
-      </a>
+       <img src = "img\logo.png" alt="ReVeste" class="logo-admin">
     </div>
-
+  
 
   </header>
   <main>

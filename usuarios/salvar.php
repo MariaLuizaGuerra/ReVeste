@@ -7,13 +7,21 @@
 
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             // Se há um ID no POST, é uma atualização. Senão, é um cadastro.
-            $usuario = new Usuario(
-                $_POST['id'] ?: null, // Operador ternário para definir o ID
-                $_POST['nome'],
-                $_POST['perfil'],
-                $_POST['email'],
-                $_POST['senha'],
-            );
+           $usuario = new Usuario(
+        null,                                     // ID é NULL para novo cadastro
+        $_POST['nome'] ?? '',
+        'User',                                   // Perfil
+        $_POST['email'] ?? '',
+        $_POST['senha'] ?? '',
+        $_POST['perfil'] ?? '',
+        $_POST['data_nascimento'] ?? '',          // Use 'data_nascimento' conforme o formulário
+        $_POST['sexo'] ?? '',                     // Use 'sexo' conforme o formulário
+        $_POST['telefone'] ?? '',
+        $_POST['endereco'] ?? '',
+        $_POST['numero'] ?? '',
+        $_POST['cidade'] ?? '',
+        $_POST['estado'] ?? ''
+           );
         }
 
         if ($usuario->getId()) {

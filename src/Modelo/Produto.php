@@ -1,111 +1,101 @@
 <?php
 class Produto
 {
-    private ?int $id;
-    private string $tipo;
-    private string $nome;
-    private string $descricao;
-    private ?string $imagem;
-    private float $preco;
-    private ?string $categoria;
-    private ?int $categoria_id;
-    private ?string $tamanho;
+    private $id;
+    private $tipo;
+    private $nome;
+    private $descricao;
+    private $imagem;
+    private $preco;
+    private $categoria;
+    private $categoria_id;
+    private $tamanho;
 
+    public function __construct(
+        $id = null,
+        $tipo,
+        $nome,
+        $descricao,
+        $preco,
+        $categoria_id = null,
+        $tamanho = null,
+        $categoria = null,
+        $imagem = null
+    ) {
+        $this->id = $id;
+        $this->tipo = $tipo;
+        $this->nome = $nome;
+        $this->descricao = $descricao;
+        $this->preco = $preco;
+        $this->categoria_id = $categoria_id;
+        $this->tamanho = $tamanho;
+        $this->categoria = $categoria;
+        $this->imagem = $imagem ? $imagem : 'reVeste_Logo.jpg';
+    }
 
-
-   public function __construct(
-    ?int $id,
-    string $tipo,
-    string $nome,
-    string $descricao,
-    float $preco,
-    ?int $categoria_id,
-    ?string $tamanho,
-    ?string $categoria,
-    ?string $imagem = null
-) {
-    $this->id = $id;
-    $this->tipo = $tipo;
-    $this->nome = $nome;
-    $this->descricao = $descricao;
-    $this->preco = $preco;
-    $this->categoria_id = $categoria_id;
-    $this->tamanho = $tamanho;
-    $this->categoria = $categoria;
-    $this->imagem = $imagem ?? 'reVeste_Logo.jpg';
-}
-
-
-    // O método getId() deve retornar o ID, que pode ser nulo
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
 
-
-    public function setImagem(?string $imagem): void
+    public function setImagem($imagem)
     {
         $this->imagem = $imagem;
     }
 
-    public function getTipo(): string
+    public function getTipo()
     {
         return $this->tipo;
     }
 
-
-    public function getNome(): string
+    public function getNome()
     {
         return $this->nome;
     }
 
-
-    public function getDescricao(): string
+    public function getDescricao()
     {
         return $this->descricao;
     }
 
-
-
-    public function getImagem(): ?string
+    public function getImagem()
     {
         return $this->imagem;
     }
 
-    public function getImagemDiretorio(): string
+    public function getImagemDiretorio()
     {
-        // procura primeiro na pasta uploads (onde salvar.php grava)
         $uploadsPath = __DIR__ . '/../../uploads/';
+
         if ($this->imagem && file_exists($uploadsPath . $this->imagem)) {
             return 'uploads/' . $this->imagem;
         }
 
-        // caso falhe, usa imagem padrão na pasta img/
-        return 'img/' . ($this->imagem ?? 'reVeste_Logo.jpg');
+        return 'img/' . ($this->imagem ? $this->imagem : 'reVeste_Logo.jpg');
     }
 
-    public function getPreco(): float
+    public function getPreco()
     {
         return $this->preco;
     }
 
-    public function getCategoria_id(): ?int
+    public function getCategoria_id()
     {
         return $this->categoria_id;
     }
 
-    public function getPrecoFormatado(): string
+    public function getPrecoFormatado()
     {
         return "R$ " . number_format($this->preco, 2);
     }
-   public function getCategoria() {
+
+    public function getCategoria()
+    {
         return $this->categoria;
     }
 
-    public function getTamanho() {
+    public function getTamanho()
+    {
         return $this->tamanho;
     }
-
-
-
 }

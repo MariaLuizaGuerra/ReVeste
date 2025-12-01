@@ -70,7 +70,7 @@ input[type="password"]:focus {
 
 
 .botao-entrar {
-    background-color: #b2896b;
+    background-color: #9b6c44;
     color: white;
     border: none;
     padding: 12px;
@@ -83,7 +83,7 @@ input[type="password"]:focus {
 
 
 .botao-entrar:hover {
-    background-color: #9b6c44;
+    background-color: #b2896b;
 }
 
 
@@ -102,8 +102,10 @@ input[type="password"]:focus {
 }
 
 
+
 .botao-cadastrar {
-    background-color: #b2896b;
+
+    background-color: #9b6c44;
     color: white;
     border: none;
     padding: 12px;
@@ -114,10 +116,7 @@ input[type="password"]:focus {
     transition: background-color 0.3s;
 }
 
-
 .botao-cadastrar:hover {
-    background-color: #9b6c44;
+    background-color: #b2896b; 
 }
-
-
 

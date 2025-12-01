@@ -1,0 +1,10 @@
+    .wrap { max-width:1000px; margin:36px auto; padding:12px; }
+    table { width:100%; border-collapse:collapse; background:#fff; box-shadow:0 6px 18px rgba(0,0,0,0.04); border-radius:8px; overflow:hidden; }
+    th, td { padding:12px 14px; text-align:left; border-bottom:1px solid #f1f1f1; }
+    .total { text-align:right; font-weight:700; padding:14px; }
+    .btn { padding:8px 12px; border-radius:6px; border:none; cursor:pointer; }
+    .btn-primary { background:#27ae60; color:#fff; }
+    .btn-danger { background:#e74c3c; color:#fff; }
+    .actions { display:flex; gap:8px; align-items:center; }
+    input.qty { width:70px; padding:6px; border-radius:6px; border:1px solid #ddd; }
+    .mensagem { margin:12px 0; padding:8px 12px; background:#eafaf1; border-left:4px solid #27ae60; border-radius:6px; }
