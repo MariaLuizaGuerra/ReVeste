@@ -103,10 +103,6 @@ tr:nth-child(even) {
     background: #fafafa;
 }
 
-/* ==============================
-   BOTÕES AÇÃO
-============================== */
-
 .btn {
     padding: 6px 12px;
     border-radius: 8px;
@@ -134,9 +130,6 @@ tr:nth-child(even) {
     background: #b91c1c;
 }
 
-/* ==============================
-   BOTÃO CADASTRAR
-============================== */
 
 .botao-cadastrar {
     margin-top: 20px;

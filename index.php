@@ -1,102 +1,105 @@
 <?php
-
 require "src/conexao-bd.php";
 require "src/Modelo/Produto.php";
 require "src/Repositorio/ProdutoRepositorio.php";
 
-$produtosRepositorio = new ProdutoRepositorio($pdo);
-$dadosRoupas = $produtosRepositorio->opcoesRoupas();
-$dadosAcessorios = $produtosRepositorio->opcoesAcessorios();
+$repo = new ProdutoRepositorio($pdo);
 
-
-
+$dadosRoupas = $repo->opcoesRoupas();
+$dadosAcessorios = $repo->opcoesAcessorios();
 ?>
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" href="img/Logo.png" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <title>ReVeste</title>
 </head>
-    <header class="topo">
-        <div class="icons">
-            <span class="icon">🔔</span>
-            <span class="icon">➕</span>
-        </div>
 
-        <h1 class="logo">ReVESTE</h1>
+<body>
 
-        <div class="login-buttons">
-            <button class="btn-login">LOGIN</button>
-            <button class="btn-singup">SING UP</button>
-        </div>
-    </header>
+<header class="topo">
+    <div class="icons">
+        <span class="icon">🔔</span>
+        <span class="icon">🛒</span>
+    </div>
 
+    <h1 class="logo">ReVESTE</h1>
+
+    <div class="login-buttons">
+        <a href="login.php" class="btn-login">LOGIN</a>
+        <a href="signup.php" class="btn-signup">SIGN UP</a>
+    </div>
+</header>
+
+<main>
+
+    <!-- BANNER -->
     <section class="container-banner">
-            <div class="container-texto-banner">
-                <img src="img/fundoLogin.jpg" class="logo" alt="logo-granato">
-            </div>
+        <img src="img/fundoLogin.jpg" class="banner-img" alt="Banner ReVeste">
+    </section>
 
-    
+    <!-- CATEGORIAS -->
     <section class="categories">
-        <div class="category">
-            <img src="img/feminino.jpg" alt="Feminino">
-            <p>Feminino</p>
-        </div>
-        <div class="category">
-            <img src="img/masculino.jpg" alt="Masculino">
-            <p>Masculino</p>
-        </div>
-        <div class="category">
-            <img src="img/infantil.jpg" alt="Infantil">
-            <p>Infantil</p>
-        </div>
-        <div class="category">
-            <img src="img/pulssize.jpg" alt="Plus Size">
-            <p>Plus Size</p>
+        <div class="category"><img src="img/feminino.jpg" alt=""><p>Feminino</p></div>
+        <div class="category"><img src="img/masculino.jpg" alt=""><p>Masculino</p></div>
+        <div class="category"><img src="img/infantil.jpg" alt=""><p>Infantil</p></div>
+        <div class="category"><img src="img/pulssize.jpg" alt=""><p>Plus Size</p></div>
+    </section>
+
+    <!-- LISTA DE ROUPAS -->
+    <section class="suggestions">
+        <h2>Roupas</h2>
+
+        <div class="container-produtos">
+
+            <?php foreach ($dadosRoupas as $p): ?>
+                <a href="produto.php?id=<?= $p->getId() ?>" class="produto">
+                    <div class="foto-produto">
+                        <img src="<?= $p->getImagemDiretorio() ?>" alt="">
+                    </div>
+
+                    <p class="nome"><?= $p->getNome() ?></p>
+                    <p class="descricao"><?= $p->getDescricao() ?></p>
+                    <p class="preco"><?= $p->getPrecoFormatado() ?></p>
+
+                    <button class="btn-add">Adicionar ao carrinho</button>
+                </a>
+            <?php endforeach; ?>
+
         </div>
     </section>
 
+    <!-- LISTA DE ACESSÓRIOS -->
     <section class="suggestions">
-        <h2>Para vocêeeeee:</h2>
-            <div class="container-cafe-manha-produtos">
-                <?php foreach ($dadosCafe as $cafe): ?>
-                    <div class="container-produto">
-                        <div class="container-foto">
-                            <img src="<?= $cafe->getImagemDiretorio() ?>">
-                        </div>
-                        <p><?= $cafe->getNome() ?></p>
-                        <p><?= $cafe->getDescricao() ?></p>
-                        <p><?= $cafe->getPrecoFormatado() ?></p>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-        </section>
-            <div class="containerprodutos">
-                <?php foreach ($dadosAlmoco as $almoco): ?>
-                    <div class="container-produto">
-                        <div class="container-foto">
-                            <img src="<?= $almoco->getImagemDiretorio() ?>">
-                        </div>
-                        <p><?= $almoco->getNome() ?></p>
-                        <p><?= $almoco->getDescricao() ?></p>
-                        <p><?= $almoco->getPrecoFormatado() ?></p>
-                    </div>
-                <?php endforeach; ?>
-            </div>
+        <h2>Acessórios</h2>
 
-        </section>
+        <div class="container-produtos">
+
+            <?php foreach ($dadosAcessorios as $p): ?>
+                <a href="produto.php?id=<?= $p->getId() ?>" class="produto">
+                    <div class="foto-produto">
+                        <img src="<?= $p->getImagemDiretorio() ?>" alt="">
+                    </div>
+
+                    <p class="nome"><?= $p->getNome() ?></p>
+                    <p class="descricao"><?= $p->getDescricao() ?></p>
+                    <p class="preco"><?= $p->getPrecoFormatado() ?></p>
+
+                    <button class="btn-add">Adicionar ao carrinho</button>
+                </a>
+            <?php endforeach; ?>
+
+        </div>
+    </section>
+
 </main>
+
 </body>
 </html>

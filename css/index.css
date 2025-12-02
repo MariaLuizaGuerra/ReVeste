@@ -224,3 +224,172 @@ section.suggestions h2 {
     margin-left: 10px;
     cursor: pointer;
 }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fff;
+    color: #222;
+    margin: 0;
+}
+
+/* ======== HEADER ======== */
+
+.topo {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    background-color: #222;
+    color: #fff;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.icons .icon {
+    font-size: 22px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+/* Login Buttons */
+
+.login-buttons a {
+    text-decoration: none;
+}
+
+.btn-login,
+.btn-signup {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-login {
+    background: #fff;
+    color: #222;
+    margin-right: 10px;
+}
+
+.btn-signup {
+    background: #e91e63;
+    color: #fff;
+}
+
+/* ======== BANNER ======== */
+.container-banner img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+/* ======== CATEGORIAS ======== */
+
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.category {
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.category img {
+    width: 100%;
+    height: 120px;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: .3s;
+}
+
+.category img:hover {
+    transform: scale(1.07);
+}
+
+.category p {
+    margin-top: 8px;
+    font-weight: 600;
+}
+
+/* ======== PRODUTOS ======== */
+
+.suggestions {
+    margin: 40px;
+}
+
+.suggestions h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.container-produtos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.produto {
+    width: 250px;
+    background: #f9f9f9;
+    padding: 12px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #222;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    transition: .3s;
+}
+
+.produto:hover {
+    transform: translateY(-5px);
+}
+
+.foto-produto img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Textos */
+
+.nome {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.descricao {
+    font-size: 14px;
+    color: #666;
+}
+
+.preco {
+    font-size: 18px;
+    color: #e91e63;
+    font-weight: 700;
+    margin: 5px 0;
+}
+
+
+.btn-add {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    background: #e91e63;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+}

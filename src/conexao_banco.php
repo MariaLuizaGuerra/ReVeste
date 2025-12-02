@@ -7,7 +7,7 @@ $db_host = getenv('DB_HOST') ?: 'localhost';
  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $pdo = new PDO(
     'mysql:host=' . $db_host . ';dbname=revestedb;charset=utf8mb4',
-    'root',
+    'root@root',
     'root',
     [
         
