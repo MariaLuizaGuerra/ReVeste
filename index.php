@@ -3,6 +3,7 @@ require "src/conexao-bd.php";
 require "src/Modelo/Produto.php";
 require "src/Repositorio/ProdutoRepositorio.php";
 
+
 $repo = new ProdutoRepositorio($pdo);
 
 $dadosRoupas = $repo->opcoesRoupas();
@@ -39,13 +40,7 @@ $dadosAcessorios = $repo->opcoesAcessorios();
 </header>
 
 <main>
-
-    <!-- BANNER -->
-    <section class="container-banner">
-        <img src="img/fundoLogin.jpg" class="banner-img" alt="Banner ReVeste">
-    </section>
-
-    <!-- CATEGORIAS -->
+   
     <section class="categories">
         <div class="category"><img src="img/feminino.jpg" alt=""><p>Feminino</p></div>
         <div class="category"><img src="img/masculino.jpg" alt=""><p>Masculino</p></div>
@@ -53,7 +48,7 @@ $dadosAcessorios = $repo->opcoesAcessorios();
         <div class="category"><img src="img/pulssize.jpg" alt=""><p>Plus Size</p></div>
     </section>
 
-    <!-- LISTA DE ROUPAS -->
+   
     <section class="suggestions">
         <h2>Roupas</h2>
 
@@ -98,6 +93,13 @@ $dadosAcessorios = $repo->opcoesAcessorios();
 
         </div>
     </section>
+
+        <title>ReVeste - Closet</title>
+</head>
+
+<body>
+    <main>
+
 
 </main>
 

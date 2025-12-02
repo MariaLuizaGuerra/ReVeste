@@ -84,7 +84,7 @@ $erro = $_GET['erro'] ?? '';
 
 
     <script>
-        // ... (Script de ocultar mensagem permanece)
+        
         window.addEventListener('DOMContentLoaded', function(){
             var msg = document.querySelector('.mensagem-erro');
             if(msg){
