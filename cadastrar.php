@@ -1,17 +1,12 @@
 <?php
-session_start();
+        require 'C:/xampp/htdocs/ReVeste/src/conexao-bd.php';
+        require __DIR__ . '/src/Modelo/Usuario.php';
+        require __DIR__ . "/src/Repositorio/UsuarioRepositorio.php";
 
-$erro = $_GET['erro'] ?? '';
-$sucesso = $_GET['sucesso'] ?? '';
-require_once __DIR__ . "/src/conexao-bd.php";
-require_once __DIR__ . "/src/Modelo/Usuario.php";
-require_once __DIR__ . "/src/Repositorio/UsuarioRepositorio.php";
+        $usuarioRepositorio = new UsuarioRepositorio($pdo);
 
-$usuarioRepositorio = new UsuarioRepositorio($pdo);
+ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
-    // 1 - Lista de campos obrigatórios
     $campos_obrigatorios = [
         'nome',
         'email',
@@ -25,8 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         'estado',
         'perfil'
     ];
-
-    // Verifica campos vazios
     foreach ($campos_obrigatorios as $campo) {
         if (!isset($_POST[$campo]) || trim($_POST[$campo]) === "") {
             header("Location: cadastrar.php?erro=campos_vazios");
@@ -34,18 +27,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
     }
 
-    // 2 - Verifica se o e-mail já existe
     $email = $_POST['email'];
     if ($usuarioRepositorio->buscarPorEmail($email)) {
         header("Location: cadastrar.php?erro=email_existente");
         exit();
     }
 
-    // 3 - Criação do usuario
+
     $usuario = new Usuario(
         null,
         $_POST['nome'],
-        $_POST['perfil'], // agora usa o valor do formulário
+        $_POST['perfil'],
         $_POST['email'],
         $_POST['senha'],
         $_POST['data_nascimento'],
@@ -88,16 +80,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             
             <h1 class="titulo-cadastro">Crie sua Conta reVeste</h1>
 
-            <!-- MENSAGENS -->
-            <?php if ($erro === 'email_existente'): ?>
-                <p class="mensagem-erro">Este e-mail já está cadastrado.</p>
+            <?php if (!empty($erro)): ?>
+    <p style="color:red;"><?= $erro ?></p>
+<?php endif; ?>
 
-            <?php elseif ($erro === 'campos_vazios'): ?>
-                <p class="mensagem-erro">Por favor, preencha todos os campos obrigatórios.</p>
+<?php if (!empty($sucesso)): ?>
+    <p style="color:green;"><?= $sucesso ?></p>
+<?php endif; ?>
 
-            <?php elseif ($sucesso === 'true'): ?>
-                <p class="mensagem-sucesso">Cadastro realizado com sucesso! Faça login.</p>
-            <?php endif; ?>
 
             <!-- FORMULÁRIO -->
             <form action="autenticar.php" method="post" class="form-cadastro">

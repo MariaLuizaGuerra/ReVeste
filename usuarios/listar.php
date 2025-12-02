@@ -18,9 +18,9 @@ if (!isset($_SESSION['usuario'])) {
 <head>
     <meta charset="UTF-8">
     <title>Usuários - ReVeste</title>
-    <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/usuarios.css">
-    <link rel="stylesheet" href="../css/listar_usuarios.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/admin.css">
 </head>
 
 <body>
