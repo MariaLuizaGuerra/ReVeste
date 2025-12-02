@@ -1,8 +1,8 @@
 body {
-  background: #f5f6f8;
+  background: #f8efd5;
   font-family: "Poppins", Arial, sans-serif;
   min-height: 100vh;
-  color: #9b6c44;
+  color: #000000;
 }
 
 .container-topo {
@@ -57,7 +57,7 @@ body {
 }
 
 .botao-sair:hover {
-  background-color: #eba339;
+  background-color: #5e4725;
   transform: scale(1.05);
 }
 
@@ -76,7 +76,7 @@ h2 {
   text-align: center;
   font-size: 24px;
   margin: 20px 0px;
-  color: grey;
+  color: #754610;
   font-weight: bold;
 }
 
@@ -94,13 +94,13 @@ table {
 table,
 th,
 td {
-  border: 1px solid #8a5404;
+  border: 1px solid #a36e1e;
 }
 
 table th {
   padding: 11px 0 11px;
-  background-color: #ebc181;
-  color: #ec8f24;
+  background-color: #ddd1bf94;
+  color: #754610;
   font-weight: bold;
   font-size: 18px;
   text-align: left;
@@ -136,7 +136,7 @@ table td {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: solid #ebc181 0.5px;
+  border: solid #000000 0.5px;
   border-radius: 10px;
   padding: 10px;
   margin: 3px 0;
@@ -169,8 +169,8 @@ table tbody tr td a:hover,
 }
 
 .botao-cadastrar {
-  background: #ebc181;
-  color: #333b1e;
+  background: #ddd1bf94;
+  color: #754610;
   font-weight: 600;
   margin-top: 20px;
   font-size: 20px;
@@ -184,7 +184,7 @@ table tbody tr td a:hover,
 }
 
 .botao-excluir {
-  background: rgb(241, 241, 252);
+  background: #9b8357;
 }
 
 .ornaments {
@@ -234,7 +234,7 @@ table tbody tr td a:hover,
   bottom: 0;
   width: 0;
   height: 3px;
-  background: #d47a18; /* cor destaque */
+  background: #ffffff; /* cor destaque */
   border-radius: 2px;
   transform: translateX(-50%);
   transition: width 0.28s;

@@ -61,8 +61,8 @@ function pode(string $perm): bool
         </a>
     <?php endif; ?>
 
-    <?php if (pode('carrinho.listar')): ?>
-        <a class="card card-carrinho" href="carrinho/listar.php">
+    <?php if (pode('carrinho.php')): ?>
+        <a class="card card-carrinho" href="carrinho.php">
             <h2>Carrinho</h2>
             <p>Ver itens do carrinho.</p>
         </a>
